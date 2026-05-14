@@ -1,0 +1,16 @@
+export const products = [
+  { id: 1, name: "Дварф-воин", category: "miniatures", price: 890, rating: 4.8, inStock: true, image: "https://ir.ozone.ru/s3/multimedia-1-2/c1000/6980711690.jpg" },
+  { id: 2, name: "Эльфийка-лучник", category: "miniatures", price: 890, rating: 4.7, inStock: true, image: "https://ir.ozone.ru/s3/multimedia-q/c1000/6749476154.jpg" },
+  { id: 3, name: "Красный дракон", category: "miniatures", price: 3490, rating: 5.0, inStock: true, image: "https://dragon-shop.ru/wp-content/uploads/2021/04/dnd-iotr-adultreddragon10-892527-nwqZbcar_1024x1024.jpg" },
+  { id: 4, name: "Лич (зачарованный)", category: "miniatures", price: 1290, rating: 4.9, inStock: false, image: "https://ir.ozone.ru/s3/multimedia-1-k/6939397568.jpg" },
+  { id: 5, name: "Гоблины (набор 5 шт)", category: "miniatures", price: 1490, rating: 4.6, inStock: true, image: "https://ir.ozone.ru/s3/multimedia-5/c1000/6757082033.jpg" },
+  { id: 6, name: "Тролль", category: "miniatures", price: 1790, rating: 4.8, inStock: true, image: "https://ir.ozone.ru/s3/multimedia-1-d/c1000/6998777185.jpg" },
+  { id: 7, name: "Набор красок (10 цветов)", category: "paints", price: 2200, rating: 4.9, inStock: true, image: "https://mimic-dnd.com/image/cache/catalog/products/hobby/thearmypainter/wp75001/dungeons-and-dragons-nolzurs-marvelous-pigments-adventurers-paint-set-1500x1500.jpg" },
+  { id: 8, name: "Кисти синтетика (набор 6 шт)", category: "paints", price: 650, rating: 4.5, inStock: true, image: "https://krasniykarandash.ru/upload/resize_cache/iblock/7b4/505_758_1/7b4c6100d865873dbdce0695a98824bd.jpg" },
+  { id: 9, name: "Грунт аэрозольный", category: "paints", price: 750, rating: 4.7, inStock: true, image: "https://st15.stpulscen.ru/images/product/561/163/629_original.jpeg" },
+  { id: 10, name: "Набор для покраски (стартовый)", category: "paints", price: 3500, rating: 5.0, inStock: false, image: "https://dragon-shop.ru/wp-content/uploads/2021/02/the-army-painter-d-d-nolzurs-marvelous-pigments-mo.jpg" },
+  { id: 11, name: "Кубики D&D (набор 7 шт)", category: "accessories", price: 550, rating: 4.8, inStock: true, image: "https://mimic-dnd.com/image/cache/catalog/products/Dice/thelavaset-575x575.jpg" },
+  { id: 12, name: "Игровое поле (складное)", category: "accessories", price: 2100, rating: 4.7, inStock: true, image: "https://ir.ozone.ru/s3/multimedia-x/6834019317.jpg" },
+  { id: 13, name: "Башня для кубиков", category: "accessories", price: 1450, rating: 4.9, inStock: true, image: "https://mimic-dnd.com/image/cache/catalog/products/dicetower/27ed4a01aa9af4c14222263e16e5322e8095d4f5_original-1500x1500.jpeg" },
+  { id: 14, name: "Сумка для миниатюр", category: "accessories", price: 1800, rating: 4.6, inStock: true, image: "https://ir.ozone.ru/s3/multimedia-1-o/c1000/7122822324.jpg" },
+];
