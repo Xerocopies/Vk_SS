@@ -1,155 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dungeon Mart — Магазин миниатюр D&D</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/Vk_SS/assets/index-bc41a8b0.css">
-</head>
-<body>
-    <!-- Шапка магазина -->
-    <header class="header">
-        <div class="container header__container">
-            <a href="index.html" class="logo">Dungeon<span>Mart</span></a>
-            <nav class="main-nav">
-                <ul class="nav-list">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="index.html#catalog">Каталог</a></li>
-                    <li><a href="#delivery">Доставка</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
-                </ul>
-            </nav>
-            <div class="cart-icon" id="cartIcon">
-                🛒
-                <span class="cart-count" id="cartCount">0</span>
-            </div>
-        </div>
-    </header>
-
-    <!-- Главный баннер -->
-    <section class="hero">
-        <div class="container hero__container">
-            <h1 class="hero__title">Миниатюры для D&D</h1>
-            <p class="hero__subtitle">Более 500 готовых миниатюр, красок и аксессуаров. В наличии и под заказ.</p>
-            <div class="hero-categories">
-                <a href="#catalog" class="category-badge">Миниатюры</a>
-                <a href="#catalog" class="category-badge">Краски</a>
-                <a href="#catalog" class="category-badge">Аксессуары</a>
-            </div>
-        </div>
-        <div class="hero__overlay"></div>
-    </section>
-
-    <!-- Каталог товаров -->
-    <section id="catalog" class="catalog">
-        <div class="container catalog__container">
-            <!-- Боковая панель фильтров -->
-            <aside class="sidebar">
-                <h3>Категории</h3>
-                <ul class="filter-list">
-                    <li><button class="filter-btn active" data-category="all">Все товары</button></li>
-                    <li><button class="filter-btn" data-category="miniatures">Миниатюры</button></li>
-                    <li><button class="filter-btn" data-category="paints">Краски и кисти</button></li>
-                    <li><button class="filter-btn" data-category="accessories">Аксессуары</button></li>
-                </ul>
-                
-                <h3>Цена</h3>
-                <div class="price-filter">
-                    <input type="number" placeholder="от" class="price-input" id="minPrice">
-                    <input type="number" placeholder="до" class="price-input" id="maxPrice">
-                    <button class="apply-price" id="applyPrice">Применить</button>
-                </div>
-            </aside>
-
-            <!-- Сетка товаров -->
-            <div class="products-grid" id="productsGrid">
-                <!-- Товары загружаются скриптом -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Преимущества -->
-    <section id="delivery" class="features-section">
-        <div class="container">
-            <h2 class="section-title">Почему выбирают нас</h2>
-            <div class="features">
-                <div class="feature-item">
-                    <div class="feature-icon">🚚</div>
-                    <h3>Быстрая доставка</h3>
-                    <p>Отправляем по всей России курьерскими службами и Почтой за 1-3 дня.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Гарантия качества</h3>
-                    <p>Оригинальные миниатюры WizKids, Reaper, Games Workshop с гарантией.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Для новичков</h3>
-                    <p>Готовые наборы красок и кистей, обучающие материалы.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💎</div>
-                    <h3>Ручная работа</h3>
-                    <p>Эксклюзивные раскрашенные миниатюры от наших мастеров.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
-    <footer id="contacts" class="footer">
-        <div class="container footer__container">
-            <div class="footer__col">
-                <h4>Dungeon Mart</h4>
-                <p>Магазин миниатюр и аксессуаров для настольных игр. Работаем с 2018 года.</p>
-                <p>📍 Москва, ул. Тверская, 15</p>
-            </div>
-            <div class="footer__col">
-                <h4>Информация</h4>
-                <ul>
-                    <li><a href="#delivery">Доставка и оплата</a></li>
-                    <li><a href="#">О магазине</a></li>
-                    <li><a href="#">Политика конфиденциальности</a></li>
-                    <li><a href="#">Возврат товара</a></li>
-                </ul>
-            </div>
-            <div class="footer__col">
-                <h4>Контакты</h4>
-                <p>📧 info@dungeonmart.ru</p>
-                <p>📞 8 (916) 011 65-58</p>
-                <p>⏰ Пн-Пт: 10:00 - 20:00</p>
-            </div>
-        </div>
-        <div class="footer__bottom">
-            <p>© 2025 Dungeon Mart. Все права защищены.</p>
-        </div>
-    </footer>
-
-    <!-- Модальное окно корзины -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-modal__content">
-            <div class="cart-modal__header">
-                <h3>Корзина</h3>
-                <button class="close-modal" id="closeModal">&times;</button>
-            </div>
-            <div class="cart-modal__body" id="cartItemsList">
-                <p class="empty-cart">Корзина пуста</p>
-            </div>
-            <div class="cart-modal__footer">
-                <div class="cart-total">
-                    <span>Итого:</span>
-                    <span id="cartTotalPrice">0 ₽</span>
-                </div>
-                <a href="checkout.html" class="btn btn--primary" id="checkoutBtn">Оформить заказ</a>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
+    <script type="module" crossorigin src="/Vk_SS/assets/index-db86fa6b.js"></script>
+    <link rel="stylesheet" href="/Vk_SS/assets/index-845ab7ce.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+  </body>
 </html>
