@@ -1,24 +1,4 @@
-import { useEffect } from 'react';
-
 function CartModal({ isOpen, onClose, cartItems, onRemoveItem, totalPrice }) {
-  useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === 'Escape' && isOpen) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleEscape);
-    }
-
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleEscape);
-    };
-  }, [isOpen, onClose]);
-
   if (!isOpen) return null;
 
   return (
@@ -39,10 +19,7 @@ function CartModal({ isOpen, onClose, cartItems, onRemoveItem, totalPrice }) {
                     <div className="cart-item-title">{item.name}</div>
                     <div className="cart-item-price">{item.price} ₽ x{item.quantity}</div>
                   </div>
-                  <button 
-                    className="cart-item-remove" 
-                    onClick={() => onRemoveItem(item.id)}
-                  >
+                  <button className="cart-item-remove" onClick={() => onRemoveItem(item.id)}>
                     ✕
                   </button>
                 </div>

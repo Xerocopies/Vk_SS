@@ -5,7 +5,7 @@ function Footer() {
         <div className="footer__col">
           <h4>Dungeon Mart</h4>
           <p>Магазин миниатюр и аксессуаров для настольных игр. Работаем с 2018 года.</p>
-          <p>📍 Москва, ул. Тверская, 15</p>
+          <p> Москва, ул. Тверская, 15</p>
         </div>
         <div className="footer__col">
           <h4>Информация</h4>

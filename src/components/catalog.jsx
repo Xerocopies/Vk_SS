@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import ProductCard from './ProductCard';
 import Sidebar from './Sidebar';
-import { products } from '../data/products';
+import { products } from '../data/product';
 
 function Catalog({ onAddToCart }) {
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   const handleFilterChange = (category) => {
-    // Update active button
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.classList.remove('active');
     });

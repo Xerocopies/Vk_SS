@@ -17,38 +17,22 @@ function Sidebar({ onFilterChange, onPriceFilter }) {
       <h3>Категории</h3>
       <ul className="filter-list">
         <li>
-          <button 
-            className="filter-btn active" 
-            data-category="all"
-            onClick={(e) => handleCategoryClick('all')}
-          >
+          <button className="filter-btn active" data-category="all" onClick={() => handleCategoryClick('all')}>
             Все товары
           </button>
         </li>
         <li>
-          <button 
-            className="filter-btn" 
-            data-category="miniatures"
-            onClick={(e) => handleCategoryClick('miniatures')}
-          >
+          <button className="filter-btn" data-category="miniatures" onClick={() => handleCategoryClick('miniatures')}>
             Миниатюры
           </button>
         </li>
         <li>
-          <button 
-            className="filter-btn" 
-            data-category="paints"
-            onClick={(e) => handleCategoryClick('paints')}
-          >
+          <button className="filter-btn" data-category="paints" onClick={() => handleCategoryClick('paints')}>
             Краски и кисти
           </button>
         </li>
         <li>
-          <button 
-            className="filter-btn" 
-            data-category="accessories"
-            onClick={(e) => handleCategoryClick('accessories')}
-          >
+          <button className="filter-btn" data-category="accessories" onClick={() => handleCategoryClick('accessories')}>
             Аксессуары
           </button>
         </li>
