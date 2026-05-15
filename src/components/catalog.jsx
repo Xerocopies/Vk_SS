@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; // <-- Добавьте useEffect
+import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import Sidebar from './Sidebar';
 
@@ -41,7 +41,10 @@ function Catalog({ products, onAddToCart, loading, error }) {
     return (
       <section className="catalog" id="catalog">
         <div className="container">
-          <p>Загрузка товаров...</p>
+          <div style={{ textAlign: 'center', padding: '50px' }}>
+            <h2>Загрузка миниатюр...</h2>
+            <p>Получаем данные с сервера</p>
+          </div>
         </div>
       </section>
     );
@@ -52,7 +55,16 @@ function Catalog({ products, onAddToCart, loading, error }) {
     return (
       <section className="catalog" id="catalog">
         <div className="container">
-          <p style={{ color: 'red' }}>Ошибка: {error}</p>
+          <div style={{ textAlign: 'center', padding: '50px', color: '#dc2626' }}>
+            <h2>Ошибка!</h2>
+            <p>{error}</p>
+            <button 
+              onClick={() => window.location.reload()}
+              style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}
+            >
+              Попробовать снова
+            </button>
+          </div>
         </div>
       </section>
     );
@@ -75,7 +87,9 @@ function Catalog({ products, onAddToCart, loading, error }) {
               />
             ))
           ) : (
-            <p>Товары не найдены</p>
+            <p style={{ gridColumn: '1/-1', textAlign: 'center' }}>
+              Миниатюры не найдены
+            </p>
           )}
         </div>
       </div>

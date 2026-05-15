@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; // <-- Добавили useEffect
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Catalog from './components/Catalog';
@@ -9,17 +9,17 @@ import CartModal from './components/CartModal';
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [products, setProducts] = useState([]); // Состояние для товаров с сервера
-  const [loading, setLoading] = useState(true); // Состояние загрузки
-  const [error, setError] = useState(null); // Состояние ошибки
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Загрузка данных с сервера
+  // Загрузка данных с сервера (API монстров D&D)
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchMiniatures = async () => {
       try {
         setLoading(true);
-        // Используем тестовый API (как в лекции)
-        const response = await fetch('https://fakestoreapi.com/products');
+        // Используем Open5e API - бесплатное API с монстрами D&D 5e
+        const response = await fetch('https://api.open5e.com/monsters/?limit=50');
         
         if (!response.ok) {
           throw new Error('Ошибка загрузки данных');
@@ -27,27 +27,28 @@ function App() {
         
         const data = await response.json();
         
-        // Преобразуем данные в нужный формат
-        const formattedProducts = data.map(item => ({
-          id: item.id,
-          name: item.title,
-          price: item.price,
-          category: item.category,
-          image: item.image,
-          description: item.description
+        // Преобразуем данные API в формат товаров
+        const miniatures = data.results.map((monster, index) => ({
+          id: monster.slug || `monster-${index}`,
+          name: monster.name,
+          price: Math.floor(Math.random() * 50) + 10, // Случайная цена $10-60
+          category: monster.type?.toLowerCase() || 'monster',
+          image: monster.img_main || 'https://via.placeholder.com/300x300?text=D%26D+Miniature',
+          description: `${monster.size} ${monster.type} • CR ${monster.challenge_rating || '?'}`,
+          challengeRating: monster.challenge_rating
         }));
         
-        setProducts(formattedProducts);
+        setProducts(miniatures);
         setError(null);
       } catch (err) {
-        setError(err.message);
+        setError('Не удалось загрузить миниатюры. Попробуйте позже.');
         console.error('Ошибка:', err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchProducts();
+    fetchMiniatures();
   }, []);
 
   const addToCart = (product) => {
