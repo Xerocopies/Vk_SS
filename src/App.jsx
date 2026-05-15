@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // <-- Добавили useEffect
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Catalog from './components/Catalog';
@@ -9,6 +9,46 @@ import CartModal from './components/CartModal';
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [products, setProducts] = useState([]); // Состояние для товаров с сервера
+  const [loading, setLoading] = useState(true); // Состояние загрузки
+  const [error, setError] = useState(null); // Состояние ошибки
+
+  // Загрузка данных с сервера
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        // Используем тестовый API (как в лекции)
+        const response = await fetch('https://fakestoreapi.com/products');
+        
+        if (!response.ok) {
+          throw new Error('Ошибка загрузки данных');
+        }
+        
+        const data = await response.json();
+        
+        // Преобразуем данные в нужный формат
+        const formattedProducts = data.map(item => ({
+          id: item.id,
+          name: item.title,
+          price: item.price,
+          category: item.category,
+          image: item.image,
+          description: item.description
+        }));
+        
+        setProducts(formattedProducts);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+        console.error('Ошибка:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const addToCart = (product) => {
     setCartItems(prev => {
@@ -33,7 +73,12 @@ function App() {
     <div className="App">
       <Header cartCount={cartCount} onCartClick={() => setIsCartOpen(true)} />
       <Hero />
-      <Catalog onAddToCart={addToCart} />
+      <Catalog 
+        products={products} 
+        onAddToCart={addToCart}
+        loading={loading}
+        error={error}
+      />
       <Features />
       <Footer />
       <CartModal
